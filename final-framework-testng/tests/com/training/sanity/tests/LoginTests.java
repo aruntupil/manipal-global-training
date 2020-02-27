@@ -38,6 +38,7 @@ public class LoginTests {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
+//		validLoginTest();
 	}
 	
 	@AfterMethod
@@ -49,7 +50,10 @@ public class LoginTests {
 	public void validLoginTest() {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
+		screenShot.captureScreenShot("Login");
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+		screenShot.captureScreenShot("Dashboard");
 	}
+	
+
 }

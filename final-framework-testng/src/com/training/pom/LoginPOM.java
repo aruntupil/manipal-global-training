@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.training.generics.GenericMethods;
+
 public class LoginPOM {
 	private WebDriver driver; 
 	
@@ -22,6 +24,9 @@ public class LoginPOM {
 	@FindBy(xpath="//button[@type='submit']")
 	private WebElement loginBtn; 
 	
+    GenericMethods objGeneric=new GenericMethods(driver);
+			
+	
 	public void sendUserName(String userName) {
 		this.userName.clear();
 		this.userName.sendKeys(userName);
@@ -33,6 +38,10 @@ public class LoginPOM {
 	}
 	
 	public void clickLoginBtn() {
-		this.loginBtn.click(); 
+		objGeneric.clickElement(loginBtn);
+//   	this.clickLoginBtn();
+		
+	
+		
 	}
 }

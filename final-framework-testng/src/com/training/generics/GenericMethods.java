@@ -81,4 +81,11 @@ public class GenericMethods {
 	public boolean checkSingleEntry(String locator, String type){
 		return getElementsAsList(locator, type).size() ==1;
 	}
+	
+	public void clickElement(WebElement element)
+	{
+		element.click();
+	//	System.out.println("Element clicked");
+	}
+
 }
