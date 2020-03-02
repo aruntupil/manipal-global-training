@@ -36,7 +36,8 @@ public class TestCase6 {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginRetailPOM = new LoginRetailPOM(driver); 
+		loginRetailPOM = new LoginRetailPOM(driver);
+		yourPasswordPOM = new YourPasswordPOM(driver);
 		baseUrl = properties.getProperty("baseURL5");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -51,16 +52,16 @@ public class TestCase6 {
 	}
 @Test
 	public void updateAccountInfo() {
-		loginRetailPOM.sendUserName("manipal@gmail.com");
-		loginRetailPOM.sendPassword("manipal");
+		loginRetailPOM.sendUserName("manzoorig3@gmail.com");
+		loginRetailPOM.sendPassword("mehadi1");
 		screenShot.captureScreenShot("Login");
 		loginRetailPOM.clickLoginBtn(); 
      	screenShot.captureScreenShot("Account Page");
 		loginRetailPOM.clickChangePassword();
-		yourPasswordPOM.sendnewPassword("mehadi");
-		yourPasswordPOM.sendconfirmPassword("mehadi");
+		yourPasswordPOM.sendnewPassword("mehadi1");
+		yourPasswordPOM.sendconfirmPassword("mehadi1");
 		screenShot.captureScreenShot("Password Update");
 		yourPasswordPOM.clickContinueBtn();
-//		accountInfoPOM.verifySuccess();
+		yourPasswordPOM.verifySuccess();
 }
 }

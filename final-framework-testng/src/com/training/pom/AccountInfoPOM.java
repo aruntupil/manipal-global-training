@@ -1,19 +1,25 @@
 package com.training.pom;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.training.generics.GenericMethods;
 
 
 public class AccountInfoPOM {
 	
+
+private  WebDriver driver;
+
 	public AccountInfoPOM(WebDriver driver) {
+		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(id="input-firstname")
 	private WebElement firstname; 
 	
@@ -29,7 +35,7 @@ public class AccountInfoPOM {
 	@FindBy(xpath="//*[@value='Continue']")
 	private WebElement continueBtn;
 
-	private WebDriver driver; 
+//	private WebDriver driver; 
 	
 //	@FindBy(linkText="Edit your account information")
 //	private WebElement editLink;
@@ -55,18 +61,30 @@ public class AccountInfoPOM {
 		this.telephone.sendKeys(telephone); 
 	}
 	
-	public void clickContinueBtn() {
+	public boolean clickContinueBtn() {
 //		objGeneric.clickElement(loginBtn);
-    	this.continueBtn.click();	
+		
+		try
+		{
+			this.continueBtn.click();
+			return true;
+		}
+		
+		catch(Exception ex){
+			return false;
+		}
+    		
 	}
 	
 	GenericMethods objGeneric=new GenericMethods(driver);
-	
-/*	public boolean verifySuccess()	
-	{
-		boolean result;
-		result = objGeneric.isElementFound(""//*[@id="System_nyHsmShk"]/div","xpath");
-		return result;
-	}
-*/
+
+
+	public void verifySuccess()	{
+		
+	 String expMessage = "Success: Your account has been successfully updated.";
+	 String actMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+	 Assert.assertEquals(actMessage, expMessage);
+
+    }
+
 }

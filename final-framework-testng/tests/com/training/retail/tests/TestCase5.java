@@ -37,6 +37,7 @@ public class TestCase5 {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginRetailPOM = new LoginRetailPOM(driver); 
+		accountInfoPOM = new AccountInfoPOM(driver);
 		baseUrl = properties.getProperty("baseURL5");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -51,19 +52,21 @@ public class TestCase5 {
 	}
 @Test
 	public void updateAccountInfo() {
-		loginRetailPOM.sendUserName("manipal@gmail.com");
-		loginRetailPOM.sendPassword("manipal");
+		loginRetailPOM.sendUserName("manzoorig3@gmail.com");
+		loginRetailPOM.sendPassword("mehadi1");
 		screenShot.captureScreenShot("Login");
 		loginRetailPOM.clickLoginBtn(); 
+//		Post clicking on the Login button.
 //		screenShot.captureScreenShot("Account Page");
 		loginRetailPOM.clickEditAccount();
-		accountInfoPOM.sendFirstName("manzoor");
-		accountInfoPOM.sendLastname("mehadi");
-		accountInfoPOM.sendEmail("manzoor@gmail.com");
+		accountInfoPOM.sendFirstName("manzoor1");
+		accountInfoPOM.sendLastname("mehadi1");
+		accountInfoPOM.sendEmail("manzoorig4@gmail.com");
 		accountInfoPOM.sendTelephone("9876543210");
 		screenShot.captureScreenShot("Account Updates");
 		accountInfoPOM.clickContinueBtn();
-//		accountInfoPOM.verifySuccess();
+//		Post updating the Account info and clicking Continue		
+		accountInfoPOM.verifySuccess();
 }
 
 }

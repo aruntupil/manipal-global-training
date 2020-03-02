@@ -9,7 +9,7 @@ import com.training.generics.GenericMethods;
 
 public class LoginRetailPOM {
 
-	private WebDriver driver; 
+	public WebDriver driver; 
 	
 	public LoginRetailPOM(WebDriver driver) {
 		this.driver = driver; 

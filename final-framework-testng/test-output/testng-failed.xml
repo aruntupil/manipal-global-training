@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.training.retail.tests.TestCase5">
+      <class name="com.training.retail.tests.TestCase6">
         <methods>
-          <include name="setUp"/>
-          <include name="setUpBeforeClass"/>
-          <include name="validLoginTest"/>
           <include name="tearDown"/>
+          <include name="setUpBeforeClass"/>
+          <include name="setUp"/>
+          <include name="updateAccountInfo"/>
         </methods>
-      </class> <!-- com.training.retail.tests.TestCase5 -->
+      </class> <!-- com.training.retail.tests.TestCase6 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
