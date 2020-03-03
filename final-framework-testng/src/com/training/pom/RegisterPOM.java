@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -57,7 +58,7 @@ private  WebDriver driver;
 	@FindBy(xpath="//*[@type='submit']")
 	private WebElement continueBtn; 
 	
-	@FindBy(xpath="//div[@class='pull-right']")
+	@FindBy(xpath="//*[@class='buttons']//div/a[1]']")
 	private WebElement registerBtn;
 
 
@@ -68,19 +69,12 @@ private  WebDriver driver;
 //	private WebElement editLink;
 	
 	
-	public boolean clickRegisterBtn() {
+	
+	public void clickRegisterBtn() {
 //		objGeneric.clickElement(loginBtn);
 		
-		try
-		{
-			this.registerBtn.click();
-			return true;
-		}
-		
-		catch(Exception ex){
-			return false;
-		}
-    		
+		this.registerBtn.click();
+		    		
 	}
 	
 	public void sendFirstName(String firstname) {

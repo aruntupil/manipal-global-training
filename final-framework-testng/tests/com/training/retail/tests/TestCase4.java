@@ -14,7 +14,7 @@ import com.training.generics.ScreenShot;
 import com.training.pom.LoginRetailPOM;
 import com.training.pom.RegisterPOM;
 //import com.training.pom.AccountInfoPOM;
-//import com.training.pom.LoginPOM;
+import com.training.pom.HomePagePOM;
 //import com.training.pom.YourPasswordPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
@@ -28,6 +28,7 @@ public class TestCase4 {
 	private ScreenShot screenShot;
 	private RegisterPOM registerPOM;
 	private LoginRetailPOM loginRetailPOM;
+	private HomePagePOM homePagePOM;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -39,10 +40,10 @@ public class TestCase4 {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
+		homePagePOM = new HomePagePOM(driver);
     	loginRetailPOM = new LoginRetailPOM(driver);
-//		yourPasswordPOM = new YourPasswordPOM(driver);
 		registerPOM = new RegisterPOM(driver);
-		baseUrl = properties.getProperty("baseURL5");
+		baseUrl = properties.getProperty("baseURL4");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
@@ -56,20 +57,22 @@ public class TestCase4 {
 @Test
 	public void registerInfo() throws Exception {
 		
+		homePagePOM.clickMenu();
+		Thread.sleep(5000);
 		loginRetailPOM.clickRegisterBtn();
-		Thread.sleep(15000);
+		Thread.sleep(5000);
 		registerPOM.sendFirstName("Vimal");
 		registerPOM.sendLastname("Verma");
 		registerPOM.sendEmail("vverma@gmail.com");
 		registerPOM.sendTelephone("9876543210");
-		registerPOM.sendAddr1("123 Test Street");
+		registerPOM.sendAddr1("123Test");
 		registerPOM.sendAddr2("Adyar");
 		registerPOM.sendCity("Chennai");
 		registerPOM.sendPostal("600089");
 		registerPOM.selectCountry("India");
 		registerPOM.selectState("Tamil Nadu");
 		registerPOM.sendPassword("atuserpwd");
-		registerPOM.sendConfirmPwd("atuser1");
+		registerPOM.sendConfirmPwd("atuserpwd");
 		registerPOM.selectNewsltr();
 		registerPOM.selectPolicy();
 		screenShot.captureScreenShot("Registering Details");

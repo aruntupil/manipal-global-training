@@ -31,24 +31,16 @@ public class LoginRetailPOM {
 	@FindBy(linkText="Change your password")
 	private WebElement changePassword;
 	
-	@FindBy(xpath="//div[@class='pull-right']")
+	@FindBy(xpath="//*[@class='buttons']//div/a[1]")
 	private WebElement registerBtn;
 	
     GenericMethods objGeneric=new GenericMethods(driver);
 
-	public boolean clickRegisterBtn() {
+	public void clickRegisterBtn() {
 //		objGeneric.clickElement(loginBtn);
 		
-		try
-		{
 			this.registerBtn.click();
-			return true;
-		}
-		
-		catch(Exception ex){
-			return false;
-		}
-    		
+	
 	}
 		
 	public void sendUserName(String userName) {
