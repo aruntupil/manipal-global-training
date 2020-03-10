@@ -24,6 +24,14 @@ public class LoginPOM {
 	@FindBy(xpath="//button[@type='submit']")
 	private WebElement loginBtn; 
 	
+	@FindBy(xpath="//*[@id='button-account']")
+	private WebElement continueBtn;
+
+	
+	@FindBy(xpath="//*[@value='guest']")
+	private WebElement clickGuestCheckoutRadio;
+
+	
     GenericMethods objGeneric=new GenericMethods(driver);
 			
 	
@@ -40,8 +48,19 @@ public class LoginPOM {
 	public void clickLoginBtn() {
 		objGeneric.clickElement(loginBtn);
 //   	this.clickLoginBtn();
-		
-	
-		
+				
 	}
+	
+	public void clickContinueBtn() {
+//		objGeneric.clickElement(loginBtn);
+		this.continueBtn.click();
+				
+	}
+	
+	public void clickGuestCheckoutRadio() {
+
+		this.clickGuestCheckoutRadio.click();
+				
+	}
+	
 }
