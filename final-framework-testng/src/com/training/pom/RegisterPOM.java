@@ -77,9 +77,9 @@ private  WebDriver driver;
 		    		
 	}
 	
-	public void sendFirstName(String firstname) {
+	public void sendFirstName(String firstnamevalue) {
 		this.firstname.clear();
-		this.firstname.sendKeys(firstname);
+		this.firstname.sendKeys(firstnamevalue);
 	}
 	
 	public void sendLastname(String lastname) {
@@ -99,22 +99,22 @@ private  WebDriver driver;
 	
 	public void sendAddr1(String addr1) {
 		this.addr1.clear(); 
-		this.addr1.sendKeys(); 
+		this.addr1.sendKeys(addr1); 
 	}
 	
 	public void sendAddr2(String addr2 ) {
 		this.addr2.clear(); 
-		this.addr2.sendKeys(); 
+		this.addr2.sendKeys(addr2); 
 	}
 	
 	public void sendCity(String city) {
 		this.city.clear(); 
-		this.city.sendKeys(); 
+		this.city.sendKeys(city); 
 	}
 	
 	public void sendPostal(String postal) {
 		this.postal.clear(); 
-		this.postal.sendKeys(); 
+		this.postal.sendKeys(postal); 
 	}
 	
 	
@@ -152,7 +152,7 @@ private  WebDriver driver;
         if (is_selected == true) {
            // If the No radio button is selected by default then do nothing
         	
-           System.out.println("No is selected");
+           list.get(1).click();
            
         } else {
             // If the No radio button is not selected then, click the No radio button.
@@ -175,10 +175,10 @@ private  WebDriver driver;
 	GenericMethods objGeneric=new GenericMethods(driver);
 
 
-	public void verifySuccess()	{
+	public void verifyRegSuccess()	{
 		
-	 String expMessage = "Success: Your account has been successfully updated.";
-	 String actMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+	 String expMessage = "Congratulations! Your new account has been successfully created!";
+	 String actMessage = driver.findElement(By.xpath("//div[@class='tb_text_wrap tb_sep']")).getText();
 	 Assert.assertEquals(actMessage, expMessage);
 
     }

@@ -20,7 +20,7 @@ import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 
-public class TestCase4 {
+public class RTTC004 {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -51,7 +51,7 @@ public class TestCase4 {
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		driver.quit();
 	}
 @Test
@@ -61,24 +61,23 @@ public class TestCase4 {
 		Thread.sleep(5000);
 		loginRetailPOM.clickRegisterBtn();
 		Thread.sleep(5000);
-		registerPOM.sendFirstName("Vimal");
+		registerPOM.sendFirstName("Kamal");
 		registerPOM.sendLastname("Verma");
-		registerPOM.sendEmail("vverma@gmail.com");
-		registerPOM.sendTelephone("9876543210");
+		registerPOM.sendEmail("kverma123@gmail.com");
+		registerPOM.sendTelephone("9876543213");
 		registerPOM.sendAddr1("123Test");
 		registerPOM.sendAddr2("Adyar");
 		registerPOM.sendCity("Chennai");
 		registerPOM.sendPostal("600089");
 		registerPOM.selectCountry("India");
 		registerPOM.selectState("Tamil Nadu");
-		registerPOM.sendPassword("atuserpwd");
-		registerPOM.sendConfirmPwd("atuserpwd");
+		registerPOM.sendPassword("atuserpwd1");
+		registerPOM.sendConfirmPwd("atuserpwd1");
 		registerPOM.selectNewsltr();
 		registerPOM.selectPolicy();
 		screenShot.captureScreenShot("Registering Details");
-		
-		
-//        registerPOM.verifySuccess();
-		System.out.println("Test was successful");
+        registerPOM.verifyRegSuccess();
+        screenShot.captureScreenShot("Registration Success");
+        System.out.println("Test was successful");
 }
 }

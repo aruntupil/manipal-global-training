@@ -36,6 +36,9 @@ private  WebDriver driver;
 	private WebElement continueBtn;
 
 //	private WebDriver driver; 
+
+	@FindBy(xpath="//*[@id='menu_url_F5fG9']")
+	private WebElement homeBtn;
 	
 //	@FindBy(linkText="Edit your account information")
 //	private WebElement editLink;
@@ -67,6 +70,21 @@ private  WebDriver driver;
 		try
 		{
 			this.continueBtn.click();
+			return true;
+		}
+		
+		catch(Exception ex){
+			return false;
+		}
+    		
+	}
+	
+	public boolean clickHomeBtn() {
+//		objGeneric.clickElement(loginBtn);
+		
+		try
+		{
+			this.homeBtn.click();
 			return true;
 		}
 		

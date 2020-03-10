@@ -18,7 +18,7 @@ import com.training.pom.YourPasswordPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class TestCase6 {
+public class RTTC006 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginRetailPOM loginRetailPOM;

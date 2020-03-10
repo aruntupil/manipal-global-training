@@ -17,7 +17,7 @@ import com.training.pom.LoginRetailPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class TestCase5 {
+public class RTTC005 {
 
 	private WebDriver driver;
 	private String baseUrl;
