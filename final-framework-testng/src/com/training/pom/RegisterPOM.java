@@ -52,7 +52,7 @@ private  WebDriver driver;
 	@FindBy(id="input-confirm")
 	private WebElement confirmPwd;
 	
-	@FindBy(xpath="//*[@type='checkbox']")
+	@FindBy(xpath="//*[@class='checkbox']//input")
 	private WebElement privacyPolicy; 
 	
 	@FindBy(xpath="//*[@type='submit']")
@@ -145,18 +145,18 @@ private  WebDriver driver;
     public void selectNewsltr(){
      
 
-        List<WebElement> list = driver.findElements(By.name("newsletter"));
+        List<WebElement> list = driver.findElements(By.xpath("//*[@class='radio-inline']//input[@value='0']"));
       
         Boolean is_selected = list.get(0).isSelected();
       
-        if (is_selected == true) {
+        if (!is_selected == true) {
            // If the No radio button is selected by default then do nothing
         	
-           list.get(1).click();
+        	list.get(0).click();
            
         } else {
             // If the No radio button is not selected then, click the No radio button.
-           list.get(0).click();
+           System.out.println("Error");
 
         }
     }
